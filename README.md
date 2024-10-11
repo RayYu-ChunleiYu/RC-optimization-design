@@ -23,19 +23,19 @@ https://www.python.org/
 Install third-party package that used in the project and 
 ### Python installed from Anaconda
 ``` pwsh
-conda activate ConcreteOpt \\ acitvate created python virtual environment
-pip install -r requirement.txt \\ install packages
+conda activate ConcreteOpt # acitvate created python virtual environment
+pip install -r requirement.txt # install packages
 ```
 ### Pyhton installed from Python official 
 
 ``` pwsh
-pip install -r requirement.txt \\ install packages
+pip install -r requirement.txt # install packages
 ```
 
 ## Run opt python script
 
 ``` pwsh
-python opt_design_beam.py \\ example to carry out beam design optimization
+python opt_design_beam.py # example to carry out beam design optimization
 ```
 
 # Files
