@@ -5,7 +5,7 @@ This repository is created for the lecture on "Fundamentals of Concrete Structur
 
 # How to run 
 ## Download python (Required version 3.12.7 )
-### Anaconda 
+### Methond 1: Anaconda 
 #### Download anaconda
 Go anaconda official page to download anaconda and install it 
 https://www.anaconda.com/
@@ -14,19 +14,19 @@ https://www.anaconda.com/
 ``` pwsh
 conda create -n ConcreteOpt python=3.12.7
 ```
-### Python 
+### Methon 2: Python official page
 Go to python official page to download python and install
 https://www.python.org/
 
 ## Enviorment set-up  
 
 Install third-party package that used in the project and 
-### Python installed from Anaconda
+### For method 1: Python installed from Anaconda
 ``` pwsh
 conda activate ConcreteOpt # acitvate created python virtual environment
 pip install -r requirement.txt # install packages
 ```
-### Pyhton installed from Python official 
+### For method 2: Pyhton installed from Python official 
 
 ``` pwsh
 pip install -r requirement.txt # install packages
