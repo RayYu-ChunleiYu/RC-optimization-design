@@ -1,5 +1,6 @@
 from ConstrainGA import ConstrainGA
 from ConstrainPSO import ConstrainPSO
+import time
 
 def target_func(b,h,A_g,cost_concrete=400/1000000,cost_steel=35000/1000000):
     return b*h*cost_concrete+cost_steel*A_g
@@ -34,32 +35,37 @@ def constrain_6_b_min(b,h,A_g,b_0=200):
     return b-b_0
 
 if __name__ == "__main__":
+    
+    
+    t1 = time.time()
     # # GA
-    # boundary = [[200,400],[0,800],[400,800]]
-    # GA_params = {
-    #     "pop_size":1000,
-    #     "iteration_num":100,
-    #     "mutation_prob_limit":0.05
-    # }
-    # CGA = ConstrainGA()
-    # CGA.set_boundary(boundary)
-    # CGA.set_algorithm_param(**GA_params)
-    # CGA.set_target_func(target_func)
-    # CGA.set_constraint_func([constrain_1_moment,constrain_2_rhi_min,constrain_3_xi_b,constrain_4_xi_d,constrain_5_b,constrain_6_h,constrain_6_b_min])
-    # CGA.run()
-
-
     boundary = [[200,400],[0,800],[400,800]]
-    PSO_param = {
-        "pop_size": 1000,
-        "iteration_num": 100,
-        "w": 0.3,
-        "c1": 1.4,
-        "c2": 1.4,
+    GA_params = {
+        "pop_size":10000,
+        "iteration_num":10,
+        "mutation_prob_limit":0.05
     }
-    CPSO = ConstrainPSO()
-    CPSO.set_boundary(boundary)
-    CPSO.set_algorithm_param(**PSO_param)
-    CPSO.set_target_func(target_func)
-    CPSO.set_constraint_func([constrain_1_moment,constrain_2_rhi_min,constrain_3_xi_b,constrain_4_xi_d,constrain_5_b,constrain_6_h,constrain_6_b_min])
-    CPSO.run(multi_thread=True)
+    CGA = ConstrainGA()
+    CGA.set_boundary(boundary)
+    CGA.set_algorithm_param(**GA_params)
+    CGA.set_target_func(target_func)
+    CGA.set_constraint_func([constrain_1_moment,constrain_2_rhi_min,constrain_3_xi_b,constrain_4_xi_d,constrain_5_b,constrain_6_h,constrain_6_b_min])
+    CGA.run(multi_thread=True)
+
+
+    # boundary = [[200,400],[0,800],[400,800]]
+    # PSO_param = {
+    #     "pop_size": 10000,
+    #     "iteration_num": 10,
+    #     "w": 0.3,
+    #     "c1": 1.4,
+    #     "c2": 1.4,
+    # }
+    # CPSO = ConstrainPSO()
+    # CPSO.set_boundary(boundary)
+    # CPSO.set_algorithm_param(**PSO_param)
+    # CPSO.set_target_func(target_func)
+    # CPSO.set_constraint_func([constrain_1_moment,constrain_2_rhi_min,constrain_3_xi_b,constrain_4_xi_d,constrain_5_b,constrain_6_h,constrain_6_b_min])
+    # CPSO.run(multi_thread=True)
+    t2 = time.time()
+    print("time:",t2-t1)
